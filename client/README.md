@@ -1,12 +1,12 @@
-# EmployeeManagement - CRUD Operations in Angular
+# People Management - CRUD Operations in Angular
 
 **Quick Start**
 ```bash
 # Get the latest snapshot
-git clone https://github.com/prakhar308/employee-management-angular.git
+git clone https://github.com/aakashahpl/angular-task.git
 
 # Change directory
-cd employee-management-angular
+cd angular-task
 
 # Install dependencies
 npm install
