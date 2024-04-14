@@ -1,0 +1,34 @@
+<div class="card">
+   
+  <div class="card-header">
+     Person Form
+  </div>
+
+  <div class="card-body">
+
+     <form #personForm="ngForm" class="col-md-6" ngNativeValidate
+     *ngIf="person" (ngSubmit)="onSubmit(personForm.value)">
+        
+        <div class="form-group">
+           <label for="fname">FirstName</label>
+           <input [(ngModel)]="person.firstName" class="form-control" name="firstName"
+                  type="text" id="fname" required>
+        </div>      
+        
+        <div class="form-group">
+           <label for="lname">LastName</label>
+           <input [(ngModel)]="person.lastName" class="form-control" name="lastName"
+                  type="text" id="lname" required>
+        </div>
+
+        <div class="form-group">
+           <label for="phone">Phone</label>
+           <input [(ngModel)]="person.mobile" class="form-control" name="mobile"
+                  type="number" id="phone" required>
+        </div>
+
+        <button [disabled]="personForm.invalid" class="btn btn-success" type="submit">Submit</button>
+     </form>      
+  </div>
+
+</div>
