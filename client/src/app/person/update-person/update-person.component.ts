@@ -22,9 +22,9 @@ export class UpdatePersonComponent implements OnInit {
 
    async ngOnInit() {
     try {
-      const _id = this.route.snapshot.paramMap.get('_id');
+      // const _id = this.route.snapshot.paramMap.get('_id');
       const personDetails =  await this.personService.getPerson(
-        "661c0fb5534f7953492ae5af"
+        this.personService.currentUserUpdate
       );
       this.person = personDetails;
     } catch (error) {

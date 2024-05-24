@@ -1,65 +1,77 @@
 <div class="card">
-
-   <!-- Modal -->
-   <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-         <!-- Modal content-->
-         <div class="modal-content">
-            <div class="modal-header">
-               <h4 class="modal-title">Person Details</h4>
-            </div>
-            <div class="modal-body">
-               <div *ngFor="let person of detailedPerson | keyvalue: keepOriginalOrder">
-                  <b>{{ person.key.charAt(0).toUpperCase() + person.key.slice(1) }}:</b>
-                  {{ person.value }}
-                  <br>
-               </div>
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-         </div>
-
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Person Details</h4>
+        </div>
+        <div class="modal-body">
+          <div
+            *ngFor="let person of detailedPerson | keyvalue : keepOriginalOrder"
+          >
+            <b
+              >{{
+                person.key.charAt(0).toUpperCase() + person.key.slice(1)
+              }}:</b
+            >
+            {{ person.value }}
+            <br />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+        </div>
       </div>
-   </div>
+    </div>
+  </div>
 
-   <div class="card-header">
-      Person List
-   </div>
+  <div class="card-header">Person List</div>
 
-   <div class="card-body">
-      <loader *ngIf="!persons"></loader>
+  <div class="card-body">
+    <loader *ngIf="!persons"></loader>
 
-      <div class="table-responsive">
-         <table class="table" *ngIf="persons?.length!==0">
-            <thead>
-               <tr>
-                  <th>FirstName</th>
-                  <th>LastName</th>
-                  <th>Phone</th>
-                  <th>Actions</th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr *ngFor="let person of persons">
-                  <td>{{ person.firstName }}</td>
-                  <td>{{ person.lastName }}</td>
-                  <td>{{ person.mobile }}</td>
-                  <td>
-                     <button class="btn btn-danger" (click)="delete(person._id)">
-                        Delete</button>
-                     <button [routerLink]="['/person/update', person._id]" class="btn btn-primary">
-                        Update</button>
-                     <button (click)="getDetails(person._id)" class="btn btn-primary" data-toggle="modal"
-                        data-target="#myModal">
-                        Details
-                     </button>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </div>
-
+    <div class="table-responsive">
+      <table class="table" *ngIf="persons?.length !== 0">
+        <thead>
+          <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Phone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of persons">
+            <td>{{ person.firstName }}</td>
+            <td>{{ person.lastName }}</td>
+            <td>{{ person.mobile }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="delete(person._id)">
+                Delete
+              </button>
+              <button
+              
+                (click)="updatePerson(person._id)" 
+                class="btn btn-primary"
+              >
+                Update
+              </button>
+              <button
+                (click)="getDetails(person._id)"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#myModal"
+              >
+                Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

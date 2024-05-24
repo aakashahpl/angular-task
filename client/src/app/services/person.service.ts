@@ -7,7 +7,10 @@ import { Injectable } from '@angular/core';
 })
 
 export class PersonService {
+
   private personUrl = "http://localhost:3001/api/person";
+
+  currentUserUpdate:string = "";
 
   async getPersons() {
    try {

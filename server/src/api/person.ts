@@ -1,6 +1,6 @@
 import express from 'express';
-import verifyToken from './auth';
-import categoryModel from '../model/categories';
+// import verifyToken from './auth';
+// import categoryModel from '../model/categories';
 import personModel from '../model/person';
 
 const Router = express.Router();
@@ -20,7 +20,6 @@ Router.get('/person', async (req, res) => {
 
 Router.get('/person/:_id', async (req, res) => {
   try {
-    
     const personId = req.params._id;
     const person = await personModel.findById(personId);
 

@@ -6,7 +6,7 @@ import { AddPersonComponent } from "./person/add-person/add-person.component";
 
 export const appRoutes: Routes = [
    { path: 'persons/add', component: AddPersonComponent },
-   { path: 'persons/update/:id', component: UpdatePersonComponent },
+   { path: 'persons/update', component: UpdatePersonComponent },
    { path: 'persons', component: PersonListComponent },
    { path: '', redirectTo: 'persons', pathMatch: 'full' },
    { path: '**', redirectTo: 'persons', pathMatch: 'full' }
